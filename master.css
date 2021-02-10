@@ -1,0 +1,152 @@
+:root {
+    --couleurFond : #191c3e ;
+    --couleurHeures : #518CFF ;
+    --couleurMinutes : #FF51EA ;
+    --couleurSecondes : rgb(219, 226, 236) ;
+    --couleurBordure : rgb(219, 226, 236) ;
+
+}
+
+* {
+    margin:0; 
+    padding:0;
+    font-family:sans-serif;
+}
+
+body {
+    height:100vh;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color:  var(--couleurFond);
+}
+
+#montre {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    position:relative;
+
+    box-sizing: border-box;
+
+    height:min(50vw, 50vh);
+    width:min(50vw, 50vh);
+    border-radius: 50%;
+
+    /*border:7px var(--couleurBordure) solid;*/
+    box-shadow:  15px 15px 50px #151835,
+             -15px -15px 50px #1d2047;
+}
+
+#heures {
+    color:white;
+    height:90%;
+    width:90%;
+    position:relative;
+}
+
+#heures li {
+    list-style:none;
+    font-size:1em;
+    font-weight:700;
+}
+
+#heures li:nth-child(odd){
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+#heures li:nth-child(even){
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+#heures li:nth-child(2){
+    right:0;
+}
+
+#heures li:nth-child(3){
+    bottom:0;
+}
+
+#pseudo {
+    position:absolute;
+    top:25%;
+    font-size:.9em;
+    font-weight:100;
+    color:var(--couleurHeures);
+}
+
+#centre {
+    position:absolute;
+    top:50%;
+    left:50%;
+    
+    width:4%;
+    height:4%;
+    border-radius: 50%;
+
+    background-color: var(--couleurBordure);
+    border:2px var(--couleurFond) solid;
+    
+    transform: translate(-50%, -50%);
+}
+
+#aiguilleHeures {
+    position:absolute;
+    width:40%;
+    height:40%;
+    border-radius: 50%;
+}
+
+#aiguilleMinutes {
+    position: absolute;
+    width:60%;
+    height:60%;
+    border-radius: 50%;
+}
+
+#trotteuse {
+    position: absolute;
+    width:70%;
+    height:70%;
+    border-radius: 50%;
+}
+
+#aiguilleHeures::before {
+    content:'';
+    width:50%;
+    height:7px;
+    border-radius: 0 5px 5px 0;
+    background-color: var(--couleurHeures);
+    display:block;
+    transform-origin: right center;
+    transform:rotate(-90deg);
+}
+
+#aiguilleMinutes::before {
+    content:'';
+    width:50%;
+    height:5px;
+    border-radius: 0 5px 5px 0;
+    background-color: var(--couleurMinutes);
+    display:block;
+    transform-origin: right center;
+    transform:rotate(-90deg);
+}
+
+#trotteuse::before {
+    content:'';
+    width:50%;
+    height:3px;
+    border-radius: 0 5px 5px 0;
+    background-color: var(--couleurSecondes);
+    display:block;
+    transform-origin: right center;
+    transform:rotate(-90deg);
+}
